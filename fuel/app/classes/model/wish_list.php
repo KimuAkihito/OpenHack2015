@@ -9,11 +9,17 @@ class WishList extends \Model  {
         return $results->as_array();
     }
 
-    public static function insert() {
+    public static function insert($id) {
       $query = DB::insert('wish_list');
       $query->set(array(
-        "id" => "",
+        "id" => "$id",
         "flag" => false
       ));
+    }
+
+    public static function update($id) {
+      $query = DB::update('wish_list');
+      $query->where('id', '=', '$id');
+      $query->value('flag', true);
     }
 }
