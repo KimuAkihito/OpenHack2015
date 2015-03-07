@@ -5,5 +5,7 @@ return array(
 
     'login/auth' => 'login/auth',
     'home/index' => 'home/index',
-    'home/caption' => 'home/caption'
+    'home/caption' => 'home/caption',
+    'scraping/index' => 'scraping/index',
+    'hook/index' => 'hook/index'
 );
