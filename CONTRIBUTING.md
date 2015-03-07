@@ -177,6 +177,7 @@ of or do.
 Once we are satisfied, we will merge and close your Pull Request.
 
 ### Resources
+### Resources
 
 * [Git Reference](http://gitref.org/)
 * [FuelPHP GitHub](https://github.com/fuel)
