@@ -8,9 +8,9 @@
 return array(
    'default' => array(
       'connection'  => array(
-          'dsn'        => 'mysql:host=localhost;dbname=openhackday',
+          'dsn'        => 'mysql:host=localhost;dbname=openhack;unix_socket=/private/tmp/mysql.sock',
           'username'   => 'root',
-          'password'   => 'pass',
+          'password'   => '7102531k',
       ),
     ),
 );

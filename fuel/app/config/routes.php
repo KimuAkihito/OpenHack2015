@@ -8,5 +8,6 @@ return array(
     'home/caption' => 'home/caption',
     'list/index'   => 'list/index',
     'scraping/index' => 'scraping/index',
-    'hook/index' => 'hook/index'
+    'hook/index' => 'hook/index',
+    'fav/index' => 'fav/index'
 );
