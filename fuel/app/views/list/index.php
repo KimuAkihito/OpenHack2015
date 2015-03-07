@@ -22,11 +22,19 @@
     <tbody>
       <?php $cnt = count($response); ?>
       <?php for($i = 0; $i < $cnt; $i++) { ?>
+
+      <?php $flag = false; ?>
+      <?php foreach($allRecord as $value) {
+      	if ($value['id'] === $response[$i]["gtvid"]) {
+		$flag = true;
+	}
+      } ?>
       <tr>
         <td><?php echo intval($i) + 1; ?></td>
         <td><img src="<?php echo $response[$i]["thumbnail_url"]; ?>"</td>
         <td><?php echo $response[$i]["title"]; ?></td>
-	<?php if (true) { // データベースでレコードがありかつフラグがtrueの時?>
+	<?php if ($flag &&
+		  $allRecord[$i]['flag'] === '1' ) { // データベースでレコードがありかつフラグがtrueの時?>
 	<form action="../home/index.php" method="post">
 	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
 	<input type="hidden" name="mvurl" value="<?php echo $response[$i]["movie_url"]; ?>">
@@ -37,14 +45,17 @@
         <td><button type="button" class="btn btn-default">未達成</button></td>
 	<?php } ?>
 
-	<?php if (true) {  // データベースに入っているかどうかで出し分け?>
-	<form action="./list/index.php" method="post">
+
+	<?php if ($flag) {  // データベースに入っているかどうかで出し分け?>
+	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
+        <td><button type="submit" class="btn btn-danger">挑戦中</button></td>
+	<?php } else if ($flag && $allRecord[$i]['flag'] === '1') { ?>
+        <td><button type="submit" class="btn btn-info">完了</button></td>
+	<?php } else { ?>
+	<form action="./index.php" method="post">
 	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
         <td><button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-heart"></i></button></td>
 	</form>	
-	<?php } else { ?>
-	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
-        <td><button type="submit" class="btn btn-default">挑戦中</button></td>
 	<?php } ?>
       </tr>
       <?php } ?>

@@ -19,7 +19,7 @@ class WishList extends \Model  {
       $query = DB::insert('wish_list');
       $query->set(array(
         "id" => $id,
-        "flag" => 1
+        "flag" => 0
       ));
       $query->execute();
     }
@@ -27,6 +27,6 @@ class WishList extends \Model  {
     public static function update($id) {
       $query = DB::update('wish_list');
       $query->where('id', '=', '$id');
-      $query->value('flag', true);
+      $query->value('flag', 1);
     }
 }

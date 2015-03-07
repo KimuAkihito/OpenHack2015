@@ -30,7 +30,8 @@ class Controller_Welcome extends Controller
 	public function action_index()
 	{
                 WishList::insert('1SJP7FE41425448500');
-                echo WishList::get_all();
+                WishList::update('1SJP7FE41425448500');
+                print_r( WishList::get_all());
 		return Response::forge(View::forge('welcome/index'));
 	}
 
