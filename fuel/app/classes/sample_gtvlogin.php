@@ -164,7 +164,6 @@ function login_to_gtv($ipaddr, $apiver, $userid, $md5passwd ) {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<?php var_dump($logininfo['gtvsession']); ?>
 <h1>ガラポンTV　LAB</h1>
 <p>これらの機能は全て<a href="http://garapon.tv/developer">ガラポンTV API</a>で実現しています。</p>
 
