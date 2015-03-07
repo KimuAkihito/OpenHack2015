@@ -26,5 +26,6 @@ desktop.ini
 /fuel/app/cache/*/*
 /fuel/app/config/crypt.php
 /fuel/app/config/development/db.php
+/fuel/app/config/db.php
 /fuel/app/data/trans_*
 composer.phar

@@ -18,6 +18,7 @@
       </tr>
     </thead>
     <tbody>
+      <?php $cnt = count($response); ?>
       <?php foreach($response)
       <tr>
         <td>1</td>
