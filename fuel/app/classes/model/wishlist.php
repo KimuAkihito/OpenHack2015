@@ -19,7 +19,7 @@ class WishList extends \Model  {
       $query = DB::insert('wish_list');
       $query->set(array(
         "id" => $id,
-        "flag" => false
+        "flag" => 1
       ));
       $query->execute();
     }
