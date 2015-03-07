@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <?php $cnt = count($response); ?>
-      <?php foreach($response)
+      <?php for($i = 0; $i < $response; $i++) { ?>
       <tr>
         <td>1</td>
         <td><img src="<?php echo $response[1]["thumbnail_url"]; ?>"</td>
@@ -31,6 +31,7 @@
 	<?php } ?>
         <td><button type="button" class="btn btn-warning">見たい！！</button></td>
       </tr>
+      <?php } ?>
     </tbody>
   </table>
   </div>
