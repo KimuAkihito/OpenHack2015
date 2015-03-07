@@ -23,18 +23,29 @@
       <?php $cnt = count($response); ?>
       <?php for($i = 0; $i < $cnt; $i++) { ?>
       <tr>
-        <td><?php echo $i; ?></td>
+        <td><?php echo intval($i) + 1; ?></td>
         <td><img src="<?php echo $response[$i]["thumbnail_url"]; ?>"</td>
         <td><?php echo $response[$i]["title"]; ?></td>
-	<?php if (true) { ?>
-        <td><button type="button" class="btn btn-default">未達成</button></td>
-	<?php } else { ?>
-        <td><button type="button" class="btn btn-primary">Clear!!</button></td>
-	<?php } ?>
-	<form action="#" method="post">
+	<?php if (true) { // データベースでレコードがありかつフラグがtrueの時?>
+	<form action="../home/index.php" method="post">
 	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
-        <td><button type="submit" class="btn btn-warning">見たい！！(課題をやる)</button></td>
+	<input type="hidden" name="mvurl" value="<?php echo $response[$i]["movie_url"]; ?>">
+	<input type="hidden" name="thumb" value="<?php echo $response[$i]["thumbnail_url"]; ?>">
+        <td><button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-play"></i></button></td>
 	</form>	
+	<?php } else { ?>
+        <td><button type="button" class="btn btn-default">未達成</button></td>
+	<?php } ?>
+
+	<?php if (true) {  // データベースに入っているかどうかで出し分け?>
+	<form action="./list/index.php" method="post">
+	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
+        <td><button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-heart"></i></button></td>
+	</form>	
+	<?php } else { ?>
+	<input type="hidden" name="gtvid" value="<?php echo $response[$i]["gtvid"]; ?>">
+        <td><button type="submit" class="btn btn-default">挑戦中</button></td>
+	<?php } ?>
       </tr>
       <?php } ?>
     </tbody>
