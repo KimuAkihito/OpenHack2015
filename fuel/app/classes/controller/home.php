@@ -21,7 +21,7 @@ class Controller_Home extends Controller
             .Session::get("gtvsession")."&dev_id=".DEV_ID;
 
         $data = array(
-            "n" => "1",
+            "n" => "100",
             "p" => "1",
             "s" => "e",
 			"dt" => "s",
@@ -37,7 +37,11 @@ class Controller_Home extends Controller
 
         $resp_json = json_decode($response, true);
 
+        $gtvid = "";
+
         foreach($resp_json["program"] as $key => $value){
+
+            $gtvid = $value["gtvid"];
 
             $view_data["title"] = $value["title"];
 
@@ -53,22 +57,45 @@ class Controller_Home extends Controller
             .Session::get("gtvsession")."&dev_id=".DEV_ID;
 
         $data = array(
-            "gtvid" => "1SJP7FE41425722400"
+            "gtvid" => $gtvid
         );
 
-        /* $request = Request::forge($search_url, 'curl'); */
-        /* $request->set_method('post'); */
-        /* $request->set_params($data); */
-        /* $request->execute(); */
-        /* $response = $request->response(); */
+        $request = Request::forge($search_url, 'curl');
+        $request->set_method('post');
+        $request->set_params($data);
+        $request->execute();
+        $response = $request->response();
 
-        /* $resp_json = json_decode($response, true); */
+        $resp_json = json_decode($response, true);
 
-        /* foreach($resp_json["program"] as $key => $value){ */
-        /*     var_dump($value["caption"]); */
-        /* } */
+        // セッション毎に翻訳ファイルを作成する
+        $caption_file_path = "trans_".Session::get("gtvsession").".vtt";
+        $caption_file = fopen(APPPATH."data/".$caption_file_path, "c");
+
+        $captions = "WEBVTT\n\n";
+
+        $caption_index = 0;
+
+        foreach($resp_json["program"] as $key => $value){
+            foreach($value["caption"] as $ckey => $cvalue) {
+                $captions .= ++$caption_index . "\n";
+                $captions .= $cvalue["caption_time"]. ".000 --> ". $cvalue["caption_time"]. ".999\n";
+                $captions .= $cvalue["caption_text"]. "\n\n";
+            }
+        }
+
+        fwrite($caption_file, $captions);
+        fclose($caption_file);
+
+        $view_data["caption_file_path"] = "./caption?file=".$caption_file_path;
 
 		return Response::forge(View::forge('home/index', $view_data));
 	}
+
+    public function action_caption() {
+        $caption_file_path = "trans_".Session::get("gtvsession").".vtt";
+
+        echo file_get_contents(APPPATH."data/".$caption_file_path);
+    }
 
 }

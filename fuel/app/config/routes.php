@@ -5,4 +5,5 @@ return array(
 
     'login/auth' => 'login/auth',
     'home/index' => 'home/index',
+    'home/caption' => 'home/caption'
 );
