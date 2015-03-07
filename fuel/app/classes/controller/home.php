@@ -77,11 +77,13 @@ class Controller_Home extends Controller
         $caption_index = 0;
 
         foreach($resp_json["program"] as $key => $value){
-            foreach($value["caption"] as $ckey => $cvalue) {
-                $captions .= ++$caption_index . "\n";
-                $captions .= $cvalue["caption_time"]. ".000 --> ". $cvalue["caption_time"]. ".999\n";
-                $captions .= $cvalue["caption_text"]. "\n\n";
-            }
+	    if(isset($value["caption"])) {
+		    foreach($value["caption"] as $ckey => $cvalue) {
+			$captions .= ++$caption_index . "\n";
+			$captions .= $cvalue["caption_time"]. ".000 --> ". $cvalue["caption_time"]. ".999\n";
+			$captions .= $cvalue["caption_text"]. "\n\n";
+		    }
+	    }
         }
 
         fwrite($caption_file, $captions);
