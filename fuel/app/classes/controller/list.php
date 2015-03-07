@@ -1,5 +1,7 @@
 <?php
 
+use \Model\WishList;
+
 class Controller_List extends Controller
 {
 
@@ -22,10 +24,18 @@ class Controller_List extends Controller
             "n" => "10",
             "p" => "1",
             "s" => "e",
+            "genre0" => "7",
+            "genre1" => "0",
 			"dt" => "s",
 			"sort" => "std",
 			"ch" => "32740"
         );
+	// 番組IDが入っていたら、登録
+	if (isset($_POST['gtvid'])) {
+		$view_data['allRecord'] = WishList::insert($_POST['gtvid']);
+	}
+
+	$view_data['allRecord'] = WishList::get_all();
 
         $request = Request::forge($search_url, 'curl');
         $request->set_method('post');
@@ -50,6 +60,8 @@ class Controller_List extends Controller
                 ':'.GARAPON_HTTP_PORT.'/'.$value["gtvid"].
                 '.m3u8?gtvsession='.Session::get("gtvsession").'&starttime=0&dev_id='.DEV_ID;
         }
+
+
 	return Response::forge(View::forge('list/index', $view_data));
 	}
 
