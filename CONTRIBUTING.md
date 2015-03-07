@@ -3,7 +3,7 @@ Contributing to FuelPHP
 
 Any person or company wanting to contribute to FuelPHP should follow the
 following rules to increase the chance of the contribution being accepted.
-
+hogehoe
 Sign your Work
 --------------
 
