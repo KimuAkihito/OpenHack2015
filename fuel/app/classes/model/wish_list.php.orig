@@ -1,4 +1,16 @@
 <?php
+<<<<<<< HEAD
+
+class Model_WishList extends \Model_Crud
+{
+    public static function find_all()
+    {
+        $query=DB::select()->from('wish_list')->execute();
+
+        return $query->as_array();
+    }
+}
+=======
 namespace Model;
 use \DB;
 
@@ -23,3 +35,4 @@ class WishList extends \Model  {
       $query->value('flag', true);
     }
 }
+>>>>>>> 1d94572be18a2b834df33916884e2c554e5cb3c5

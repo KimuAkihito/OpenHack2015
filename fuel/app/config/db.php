@@ -6,6 +6,7 @@
  */
 
 return array(
+<<<<<<< HEAD
     'default' => array(
         'type'        => 'pdo',
         'connection'  => array(
@@ -22,3 +23,13 @@ return array(
         'profiling'    => false,
     ),
 );
+=======
+  'default' => array(
+      'connection'  => array(
+      'dsn'        => 'mysql:host=localhost;dbname=openhackday',
+      'username'   => 'root',
+      'password'   => '',
+    ),
+  ),
+)
+>>>>>>> 1d94572be18a2b834df33916884e2c554e5cb3c5
