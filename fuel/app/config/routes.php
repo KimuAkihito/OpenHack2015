@@ -6,7 +6,7 @@ return array(
     'login/auth'   => 'login/auth',
     'home/index'   => 'home/index',
     'home/caption' => 'home/caption',
-    'list/index'   => 'list/index'
+    'list/index'   => 'list/index',
     'scraping/index' => 'scraping/index',
     'hook/index' => 'hook/index'
 );

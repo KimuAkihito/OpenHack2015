@@ -10,7 +10,7 @@ return array(
       'connection'  => array(
           'dsn'        => 'mysql:host=localhost;dbname=openhackday',
           'username'   => 'root',
-          'password'   => '',
+          'password'   => 'pass',
       ),
     ),
 );

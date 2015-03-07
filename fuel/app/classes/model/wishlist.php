@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-class WishList extends \model  {
+class WishList extends \Model  {
     public static function get_all()
     {
         $results = \DB::query('SELECT * FROM wish_list')->execute();
