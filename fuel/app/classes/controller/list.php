@@ -15,13 +15,11 @@ class Controller_List extends Controller
 
         $view_data = array();
         
-        echo Session::get("gtvsession");
-
         $search_url = "http://".GARAPON_GURL.":".GARAPON_HTTP_PORT."/gapi/v3/search?gtvsession="
             .Session::get("gtvsession")."&dev_id=".DEV_ID;
 
         $data = array(
-            "n" => "100",
+            "n" => "10",
             "p" => "1",
             "s" => "e",
 			"dt" => "s",
@@ -41,7 +39,7 @@ class Controller_List extends Controller
 
         foreach($resp_json["program"] as $key => $value){
 
-            $gtvid['response'][$key]["gtvid"] = $value["gtvid"];
+            $view_data['response'][$key]["gtvid"] = $value["gtvid"];
 
             $view_data["response"][$key]["title"] = $value["title"];
 

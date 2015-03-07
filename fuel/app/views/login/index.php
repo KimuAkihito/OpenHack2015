@@ -6,9 +6,17 @@
   </head>
   <body>
     <form action="./login/auth" method="POST">
-      <label>User: </label><input name="username" /><br />
-      <label>Password: </label><input name="password" type="password" />
+<table class="table table-striped">
+<tbody>
+<tr>
+      <td><label>User: </label><input name="username" /></td>
+      <td><label>Password: </label><input name="password" type="password" /></td>
+</tr>
+</tbody>
+</table>
       <input type="submit" value="Login" />
     </form>
   </body>
+<?php echo Asset::css("bootstrap.css"); ?>
+<?php echo Asset::js("bootstrap.min.js"); ?>
 </html>
