@@ -9,7 +9,7 @@
  * @copyright  2010 - 2014 Fuel Development Team
  * @link       http://fuelphp.com
  */
-
+use \Model\WishList;
 /**
  * The Welcome Controller.
  *
@@ -21,7 +21,6 @@
  */
 class Controller_Welcome extends Controller
 {
-
 	/**
 	 * The basic welcome message
 	 *
@@ -30,6 +29,8 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
+                WishList::insert('1SJP7FE41425448500');
+                echo WishList::get_all();
 		return Response::forge(View::forge('welcome/index'));
 	}
 

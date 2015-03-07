@@ -45,6 +45,6 @@ class Controller_Login extends Controller
         
         Session::set("gtvsession", $resp_json["gtvsession"]);
 
-        return Response::redirect('home/index');
+        return Response::redirect('list/index');
 	}
 }
