@@ -1,4 +1,4 @@
-Contributing to Fuel
+Contributing to FuelPHP
 =======================
 
 Any person or company wanting to contribute to FuelPHP should follow the
