@@ -27,7 +27,7 @@ class Controller_Login extends Controller
         $password = $_POST["password"];
         $md5password = md5($password);
 
-        $url = "http://126.94.120.187:60405/gapi/v3/auth?dev_id=4eacefa94a16d0e6f1a958ffe5850aa8";
+        $url = "http://".GARAPON_GURL.":".GARAPON_HTTP_PORT."/gapi/v3/auth?dev_id=".DEV_ID;
         
         $data = array(
             "type" => "login",
