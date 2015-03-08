@@ -1,7 +1,5 @@
 #FuelPHPdayo123453123
 
-※ねむたい
-
 * Version: 1.7.2
 * [Website](http://fuelphp.com/)
 * [Release Documentation](http://docs.fuelphp.com)
